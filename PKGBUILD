@@ -1,5 +1,6 @@
 # Maintainer: Brian Hood <brianh6854@googlemail.com>
 # Contributor: Benjamin van der Burgh <gringo@archlinux.info>
+# Contributor: Clemens Lutz <lutzcle@cml.li>
 
 pkgname=monetdb
 pkgver=11.23.3
