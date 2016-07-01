@@ -1,0 +1,18 @@
+post_install() {
+    if ! getent group monetdb >/dev/null; then
+        groupadd monetdb
+    fi
+    if ! getent passwd monetdb >/dev/null; then
+        useradd -c 'MonetDB user' -g monetdb -d '/var/monetdb5' -s /bin/bash monetdb
+        passwd -l monetdb >/dev/null
+    fi
+    if [ ! -d '/var/log/monetdb' ]; then
+        mkdir -p '/var/log/monetdb'
+        chown monetdb:monetdb '/var/log/monetdb'
+    fi
+    if [ ! -d '/var/run/monetdb' ]; then
+        mkdir -p '/var/run/monetdb'
+        chown monetdb:monetdb '/var/run/monetdb'
+    fi
+    chown -R monetdb:monetdb '/var/monetdb5'
+}
